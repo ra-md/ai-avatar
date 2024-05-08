@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* --background: 232 76% 26%; */
+    --background: 0 0% 0%;
+    --foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --accent: 0 0% 63.14%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 215 27.9% 16.9%;
+
+    --radius: 0.5rem;
+
+    --gradient-start-1: 206.59 100% 50%;
+    --gradient-end-1: 234.97 64.85% 53.14%;
+
+    --gradient-start: 347.8 96.81% 63.14%;
+    --gradient-end: 230.11 95.92% 61.57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+.pricing::after,
+.pricing::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  inset: 0px;
+  border-radius: inherit;
+  background: radial-gradient(1200px circle at var(--x) var(--y),
+      rgba(255, 255, 255, 0.2),
+      /* red, */
+      transparent 40%);
+}
+
+.pricing::before {
+  z-index: 1;
+}
+
+.pricing::after {
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.pricing:hover:after {
+  opacity: 1;
+}
